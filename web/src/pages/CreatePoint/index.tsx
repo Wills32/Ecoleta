@@ -1,6 +1,6 @@
 import React, {useEffect, useState, ChangeEvent, FormEvent} from 'react';
 import './styles.css';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowLeft} from 'react-icons/fi';
 import logo from '../../assets/logo.svg';
 import {Map, TileLayer, Marker } from 'react-leaflet';
@@ -38,7 +38,8 @@ const CreatePoint = () => {
     });
     const [selectedCity, setSelectedCity] = useState('0');
     const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0]);
-    
+    const history = useHistory();
+
     useEffect(() =>{
         navigator.geolocation.getCurrentPosition(position => {
             const {latitude, longitude} = position.coords;
@@ -125,6 +126,9 @@ const CreatePoint = () => {
         };
       await api.post('points',data);
       alert('Ponto de Coleta Criado!');
+
+      history.push('/');
+
     }
 
     return (
