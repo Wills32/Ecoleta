@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "@types/react-dropzone": "^5.1.0",
+    "knex": "^0.21.1",
+    "sqlite3": "^4.2.0"
+  }
+}
